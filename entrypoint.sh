@@ -334,9 +334,7 @@ check_version_exists "$_AWS_CLI_DOWNLOAD_URL"
 download_aws_cli "$_DOWNLOAD_FILENAME" "$_AWS_CLI_DOWNLOAD_URL"
 
 # Download CLI signature
-_AWS_CLI_SIGNATURE_URL="${AWS_CLI_SIGNATURE_URL:-"$(get_signature_url "$_AWS_CLI_DOWNLOAD_URL" 2>&1)"}"
-[[ ! "$_AWS_CLI_SIGNATURE_URL" =~ ^https://.* ]] && msg_error "$_AWS_CLI_SIGNATURE_URL"
-download_aws_cli_signature "${$_DOWNLOAD_FILENAME}.sig" "$_AWS_CLI_SIGNATURE_URL"
+download_aws_cli_signature "${_DOWNLOAD_FILENAME}.sig" "${_AWS_CLI_DOWNLOAD_URL}.sig"
 
 gpg --verify "${$_DOWNLOAD_FILENAME}".sig $_DOWNLOAD_FILENAME
 
