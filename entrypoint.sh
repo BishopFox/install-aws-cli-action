@@ -336,7 +336,7 @@ download_aws_cli "$_DOWNLOAD_FILENAME" "$_AWS_CLI_DOWNLOAD_URL"
 # Download CLI signature
 download_aws_cli_signature "${_DOWNLOAD_FILENAME}.sig" "${_AWS_CLI_DOWNLOAD_URL}.sig"
 
-gpg --verify "${$_DOWNLOAD_FILENAME}".sig $_DOWNLOAD_FILENAME
+gpg --verify "${_DOWNLOAD_FILENAME}".sig $_DOWNLOAD_FILENAME
 
 install_aws_cli "$_DOWNLOAD_FILENAME" "$_AWS_CLI_VERSION" "$_AWS_CLI_ARCH"
 test_aws_cli "$_AWS_CLI_ARCH"
