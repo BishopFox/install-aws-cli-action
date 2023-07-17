@@ -45,6 +45,10 @@ runs:
         echo "ROOTDIR=${{ inputs.rootdir }}" >> $GITHUB_ENV
         echo "WORKDIR=${{ inputs.workdir }}" >> $GITHUB_ENV
       shell: bash
+    - id: install-signing-key
+      shell: bash
+      run: |
+        gpg --import ${GITHUB_ACTION_PATH}/signing-key.asc
     - id: install-aws-cli
       run: sudo --preserve-env ${GITHUB_ACTION_PATH}/entrypoint.sh
       shell: bash
