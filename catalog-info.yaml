@@ -1,0 +1,14 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: install-aws-cli-action
+  description: Action to install the AWS CLI
+  tags:
+    - action-fork
+    - docker
+    - language:shell
+spec:
+  type: action
+  lifecycle: production
+  owner: group:consultingengineering
